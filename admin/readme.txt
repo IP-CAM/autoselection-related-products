@@ -1,0 +1,1 @@
+Modul autoselection related products for CMS Opencart
