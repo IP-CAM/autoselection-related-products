@@ -575,6 +575,11 @@ class ControllerCatalogProduct extends Controller {
     	$this->data['entry_category'] = $this->language->get('entry_category');
 		$this->data['entry_filter'] = $this->language->get('entry_filter');
 		$this->data['entry_related'] = $this->language->get('entry_related');
+/*----------------------------------------------------------*/
+		$this->data['entry_max_related'] = $this->language->get('entry_max_related');
+		$this->data['button_related'] = $this->language->get('button_related');
+		$this->data['entry_add_related'] = $this->language->get('entry_add_related');
+/*----------------------------------------------------------*/
 		$this->data['entry_attribute'] = $this->language->get('entry_attribute');
 		$this->data['entry_text'] = $this->language->get('entry_text');
 		$this->data['entry_option'] = $this->language->get('entry_option');

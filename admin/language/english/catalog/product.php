@@ -70,7 +70,13 @@ $_['entry_sort_order']       = 'Sort Order:';
 $_['entry_category']         = 'Categories:<br /><span class="help">(Autocomplete)</span>';
 $_['entry_filter']           = 'Filters:<br /><span class="help">(Autocomplete)</span>';
 $_['entry_download']         = 'Downloads:<br /><span class="help">(Autocomplete)</span>';
-$_['entry_related']          = 'Related Products:<br /><span class="help">(Autocomplete)</span>'; // Текст описания поля
+$_['entry_related']          = 'Related Products:<br /><span class="help">(Autocomplete)</span>';
+/*------------------------------------------------------*/
+$_['entry_max_related']      = 'Max products:';
+$_['button_related']         = 'Find';
+$_['entry_add_related']      = 'Add:';
+/*------------------------------------------------------*/
+
 $_['entry_tag']          	 = 'Product Tags:<br /><span class="help">comma separated</span>';
 $_['entry_reward']           = 'Reward Points:';
 $_['entry_layout']           = 'Layout Override:';

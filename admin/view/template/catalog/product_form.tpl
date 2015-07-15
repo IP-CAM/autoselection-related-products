@@ -299,9 +299,14 @@
                   <?php } ?>
                 </div></td>
             </tr>
+<!---------------------------------------------------------------------------------->
             <tr>
               <td><?php echo $entry_related; ?></td>
-              <td><input type="text" name="related" value="" /></td>
+			  <td><?php echo $entry_max_related; ?> <input type="text" name="max-related" value="10" size="5" /></td>
+            </tr>
+			<tr>
+              <td>&nbsp;</td>
+			  <td><input type="text" name="keyword-related" value="" size="37" />&nbsp;<a onclick="" class="button"><?php echo $button_related; ?></a></td>
             </tr>
             <tr>
               <td>&nbsp;</td>
@@ -315,6 +320,11 @@
                   <?php } ?>
                 </div></td>
             </tr>
+			<tr>
+              <td>&nbsp;</td>
+			  <td><?php echo $entry_add_related; ?> <input type="text" name="related" value="" /></td>
+            </tr>
+<!---------------------------------------------------------------------------------->
           </table>
         </div>
         <div id="tab-attribute">

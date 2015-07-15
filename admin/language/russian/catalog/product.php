@@ -72,6 +72,11 @@ $_['entry_category']         = 'Показывать в категориях:';
 $_['entry_filter']           = 'Фильтры:<br /><span class="help">(Autocomplete)</span>';
 $_['entry_download']         = 'Загрузки:<br /><span class="help">(Autocomplete)</span>';
 $_['entry_related']          = 'Связанные продукты:<br /><span class="help">(Autocomplete)</span>';
+/*------------------------------------------------------*/
+$_['entry_max_related']      = 'Максимум продуктов в списке:';
+$_['button_related']         = 'Подобрать';
+$_['entry_add_related']      = 'Добавить:';
+/*------------------------------------------------------*/
 
 $_['entry_tag']          	 = 'Теги товара:<br /><span class="help">разделяются запятой</span>';
 $_['entry_reward']           = 'Бонусные баллы:';
