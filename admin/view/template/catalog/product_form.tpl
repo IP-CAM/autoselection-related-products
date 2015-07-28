@@ -302,11 +302,11 @@
 <!---------------------------------------------------------------------------------->
             <tr>
               <td><?php echo $entry_related; ?></td>
-			  <td><?php echo $entry_max_related; ?> <input type="text" name="max-related" value="10" size="5" /></td>
+			  <td><?php echo $entry_max_related; ?> <input type="text" name="max-related" value="" size="5" /></td>
             </tr>
 			<tr>
               <td>&nbsp;</td>
-			  <td><input type="text" name="keyword-related" value="" size="37" />&nbsp;<a onclick="" class="button"><?php echo $button_related; ?></a></td>
+			  <td><input type="text" name="keyword-related" value="" size="37" />&nbsp;<a onclick="autoselection_rp();" class="button"><?php echo $button_related; ?></a></td>
             </tr>
             <tr>
               <td>&nbsp;</td>
@@ -941,6 +941,31 @@ $('#product-download div img').live('click', function() {
 	$('#product-download div:odd').attr('class', 'odd');
 	$('#product-download div:even').attr('class', 'even');	
 });
+
+// -----------------------------------------------------------------------------------
+// Autoselection RP
+function autoselection_rp(){
+    var limit = $("input:[name='max-related']").val();
+    var keywords = $("input:[name='keyword-related']").val();
+    if (limit && keywords) {
+        $.ajax({
+            url: 'index.php?route=catalog/product/autoselection_pr&token=<?php echo $token; ?>&limit=' + limit + '&keywords=' + keywords,
+            dataType: 'json',
+            success: function (json) {
+                $('#product-related').empty();
+                $.map(json, function (item) {
+                    $('#product-related').append('<div id="product-related' + item.product_id + '">' + item.name + '<img src="view/image/delete.png" alt="" /><input type="hidden" name="product_related[]" value="' + item.product_id + '" /></div>');
+                    $('#product-related div:odd').attr('class', 'odd');
+                    $('#product-related div:even').attr('class', 'even');
+                });
+            }
+        });
+    } else {
+        $("input:[name='max-related']").css('border-color', 'red');
+        $("input:[name='keyword-related']").css('border-color', 'red');
+    }
+}
+// -----------------------------------------------------------------------------------
 
 // Related
 $('input[name=\'related\']').autocomplete({

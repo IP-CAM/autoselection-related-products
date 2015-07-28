@@ -1345,7 +1345,38 @@ class ControllerCatalogProduct extends Controller {
 	  		return false;
 		}
   	}
-		
+
+//-----------------------------------------------------
+    public function autoselection_pr(){
+        $json = array();
+
+        if (isset($this->request->get['limit']) && !empty($this->request->get['keywords'])) {
+            $this->load->model('catalog/product');
+
+            if (isset($this->request->get['limit'])) {
+                $limit = $this->request->get['limit'];
+            } else {
+                $limit = 20;
+            }
+
+            // Test values
+            $data = array(
+                'start' => 0,
+                'limit' => $limit
+            );
+            $results = $this->model_catalog_product->getProducts($data);
+            for ($i = 0; $i < $limit; $i++) {
+                array_unshift($json, array(
+                    'product_id' => $results[$i]['product_id'],
+                    'name' => strip_tags(html_entity_decode($results[$i]['name'], ENT_QUOTES, 'UTF-8'))
+                ));
+            }
+            // end Test values
+        }
+        $this->response->setOutput(json_encode($json));
+    }
+//-----------------------------------------------------
+
 	public function autocomplete() {
 		$json = array();
 		
