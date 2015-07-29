@@ -302,7 +302,7 @@
 <!---------------------------------------------------------------------------------->
             <tr>
               <td><?php echo $entry_related; ?></td>
-			  <td><?php echo $entry_max_related; ?> <input type="text" name="max-related" value="" size="5" /></td>
+			  <td><?php echo $entry_max_related; ?> <input type="number" min="0" max="50" name="max-related" value="0" size="5" /></td>
             </tr>
 			<tr>
               <td>&nbsp;</td>
@@ -947,6 +947,19 @@ $('#product-download div img').live('click', function() {
 function autoselection_rp(){
     var limit = $("input:[name='max-related']").val();
     var keywords = $("input:[name='keyword-related']").val();
+
+    $.fn.add_err_style = function() {
+        $(this).css({borderWidth: '1px', borderColor: '#F8ACAC', margin: '1px', boxShadow: '0 0 1px 1px rgba(255,0,0,0.5)'}).focus(function() {
+            $(this).removeAttr('style');
+        });
+    }
+
+    if (!limit) {
+        $("input:[name='max-related']").add_err_style();
+    }
+    if (!keywords) {
+        $("input:[name='keyword-related']").add_err_style();
+    }
     if (limit && keywords) {
         $.ajax({
             url: 'index.php?route=catalog/product/autoselection_pr&token=<?php echo $token; ?>&limit=' + limit + '&keywords=' + keywords,
@@ -960,9 +973,6 @@ function autoselection_rp(){
                 });
             }
         });
-    } else {
-        $("input:[name='max-related']").css('border-color', 'red');
-        $("input:[name='keyword-related']").css('border-color', 'red');
     }
 }
 // -----------------------------------------------------------------------------------

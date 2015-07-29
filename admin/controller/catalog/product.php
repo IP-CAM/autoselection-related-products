@@ -1359,6 +1359,12 @@ class ControllerCatalogProduct extends Controller {
                 $limit = 20;
             }
 
+            if (isset($this->request->get['keywords'])) {
+                $keywords = $this->request->get['keywords'];
+            } else {
+                $keywords = '';
+            }
+
             // Test values
             $data = array(
                 'start' => 0,
